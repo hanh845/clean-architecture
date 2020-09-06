@@ -8,7 +8,7 @@ import com.d4i.sample.movie.category.usecase.CreateCategoryUseCaseImpl;
 import com.d4i.sample.movie.category.usecase.GetAllCategoriesUseCaseImpl;
 import com.d4i.sample.movie.delivery.converters.CategoryRestConverter;
 import com.d4i.sample.movie.persistence.converters.CategoryRepositoryConverter;
-import com.d4i.sample.movie.persistence.impl.CategoryServiceImpl;
+import com.d4i.sample.movie.persistence.impl.CategoryPersistenceImpl;
 import com.d4i.sample.movie.persistence.repositories.CategoryRepository;
 
 @Configuration
@@ -30,8 +30,8 @@ public class CategoryConfiguration {
 	}
 
 	@Bean
-	public CategoryServiceImpl createCategoriServiceImpl() {
-		return new CategoryServiceImpl(categoryRepository, createCategoryRepositoryConverter());
+	public CategoryPersistenceImpl createCategoriServiceImpl() {
+		return new CategoryPersistenceImpl(categoryRepository, createCategoryRepositoryConverter());
 	}
 
 	@Bean

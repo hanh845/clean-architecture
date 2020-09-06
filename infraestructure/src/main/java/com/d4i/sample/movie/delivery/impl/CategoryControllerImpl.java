@@ -56,7 +56,8 @@ public class CategoryControllerImpl implements CategoryController {
 			createCategoryUseCase.execute(categoryRestConverter.mapToEntity(category));
 		} catch (CategoryAlreadyExistException e) {
 			e.printStackTrace();
-			
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
 		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK);
