@@ -8,7 +8,7 @@ public interface CategoryRepositoryService {
 
 	public Collection<Category> getAllCategories();
 	
-	public void saveCategory(Category category) ;
+	public void saveCategory(Category category) throws Exception;
 
 	public Boolean doesCategoryNameExists(String name);
 }
