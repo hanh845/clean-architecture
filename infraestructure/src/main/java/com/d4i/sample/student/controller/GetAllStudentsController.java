@@ -10,7 +10,7 @@ import com.d4i.sample.student.Student;
 import com.d4i.sample.student.usecase.GetAllStudentsUseCase;
 
 @RestController
-public class StudentController {
+public class GetAllStudentsController {
 	
 	@Autowired
 	GetAllStudentsUseCase getAllStudentsUseCase;
