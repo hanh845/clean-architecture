@@ -17,25 +17,31 @@ import lombok.Data;
 @Table(name = "student")
 @EntityListeners(AuditingEntityListener.class)
 public class Student {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column(name = "name", nullable = false)
 	private String name;
-	
+
 	@Column(name = "available", nullable = false)
-	private Boolean available;
+	private String available;
 
 	public Student() {
 		super();
 	}
 
-	public Student(Long id, String name, Boolean available) {
+	public Student(Long id, String name, String available) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.available = available;
 	}
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", available=" + available + "]";
+	}
+
 }

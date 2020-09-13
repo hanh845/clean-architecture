@@ -9,13 +9,13 @@ import com.d4i.sample.student.usecase.CreateStudentUseCase;
 
 @RestController
 public class CreateStudentController {
-	
+
 	@Autowired
 	CreateStudentUseCase createStudentUseCase;
 
 	@GetMapping("/create-student")
 	public void createStudent( ) {
-		Student student = new Student(2l, "sample", false);
+		Student student = new Student(2l, "sample", "1");
 		try {
 			createStudentUseCase.execute(student);
 		} catch (Exception e) {
