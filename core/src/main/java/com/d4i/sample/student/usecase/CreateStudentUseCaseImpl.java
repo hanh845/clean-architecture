@@ -9,17 +9,16 @@ import com.d4i.sample.student.ports.StudentRepository;
 @Service
 public class CreateStudentUseCaseImpl implements CreateStudentUseCase {
 
-//	@Autowired
+	@Autowired
 	StudentRepository studentRepository;
 
 	@Override
 	public void execute(Student student) throws Exception   {
 
-		if(studentRepository.doesStudentNameExists(student.getName())) {
-			throw new Exception();
-		}
-
-		studentRepository.saveStudent(student);
+//		if(studentRepository.doesStudentNameExists(student.getName())) {
+//			throw new Exception();
+//		}
+		studentRepository.save(student);
 	}
 
 }
