@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="studentRepo" class="com.sample.student.StudentRepositoryImpl" />
+	<bean id="getAllStudents" class="com.sample.student.usecase.impl.GetAllStudentsUseCaseImpl">
+		<property name="studentDao" ref="studentRepo"></property>
+	</bean>
+
+	<bean id="createStudent" class="com.sample.student.usecase.impl.CreateStudentUseCaseImpl">
+		<property name="studentDao" ref="studentRepo" />
+	</bean>
+
+	<bean id="studentController" class="com.sample.student.controller.StudentController">
+		<property name="createStudUseCase" ref="createStudent" />
+		<property name="getAllStudUseCase" ref="getAllStudents" />
+	</bean>
+	
+	<bean id="springStudentController" class="com.sample.student.spring.controller.SpringStudentController">
+		<property name="createStudUseCase" ref="studentController" />
+	</bean>
+</beans>

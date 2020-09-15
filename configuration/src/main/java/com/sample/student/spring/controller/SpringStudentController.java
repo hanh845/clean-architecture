@@ -20,13 +20,8 @@ public class SpringStudentController {
 
 	Logger logger = Logger.getLogger(this.getClass());
 
-	private final StudentController controller;
-
 	@Autowired
-	public SpringStudentController(StudentController controller) {
-		super();
-		this.controller = controller;
-	}
+	StudentController controller;
 
 	@GetMapping("/test")
 	public void test( ) {
