@@ -19,14 +19,4 @@
 		<artifactId>clean-architecture-demo</artifactId>
 		<version>1.0</version>
 	</parent>
-	
-	<dependencies>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-			<version>${lombok.version}</version>
-		</dependency>
-	</dependencies>
-
 </project>

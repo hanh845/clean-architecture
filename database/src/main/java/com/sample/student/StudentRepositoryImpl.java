@@ -24,12 +24,4 @@ public class StudentRepositoryImpl implements StudentRepository {
 	public Optional<Student> findById(Long id) {
 		return Optional.ofNullable(inMemoryDb.get(id));
 	}
-
-//	@Override
-//	public Optional<Student> findByName(String name) {
-//		return inMemoryDb.values().stream()
-//				.filter(student -> student.getName().equals(name))
-//				.findAny();
-//	}
-
 }

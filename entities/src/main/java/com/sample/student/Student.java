@@ -1,8 +1,5 @@
 package com.sample.student;
 
-import lombok.Data;
-
-@Data
 public class Student {
 
 	private Long id;
@@ -22,9 +19,32 @@ public class Student {
 		this.available = available;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAvailable() {
+		return available;
+	}
+
+	public void setAvailable(String available) {
+		this.available = available;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", name=" + name + ", available=" + available + "]";
 	}
-
 }
