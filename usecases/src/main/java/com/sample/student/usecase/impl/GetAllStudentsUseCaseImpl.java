@@ -9,7 +9,7 @@ import com.sample.student.usecase.GetAllStudentsUseCase;
 
 public class GetAllStudentsUseCaseImpl implements GetAllStudentsUseCase {
 
-	private static StudentRepository studentRepository;
+	private StudentRepository studentRepository;
 
 	public GetAllStudentsUseCaseImpl() {
 	}

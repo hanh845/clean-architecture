@@ -22,7 +22,6 @@
 	<modules>
 		<module>entities</module>
 		<module>usecases</module>
-		<module>infrastructure</module>
 		<module>database</module>
 		<module>configuration</module>
 	</modules>
