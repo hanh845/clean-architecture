@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,14 +32,15 @@ public class SpringStudentController {
 	}
 
 	@PostMapping("/students")
-	public String createStudent(@RequestBody Student student) throws Exception {
+	public ResponseEntity<String> createStudent(@RequestBody Student student) throws Exception {
 		createStudentUseCase.execute(student);
-		return "done";
+		return new ResponseEntity<>("OK", HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/students", method = RequestMethod.GET)
-	public List<Student> allUsers() {
-		return getAllStudentsUseCase.execute();
+	public ResponseEntity<List<Student>> allUsers() {
+		List<Student> lsStudents = getAllStudentsUseCase.execute();
+		return new ResponseEntity<>(lsStudents, HttpStatus.OK);
 	}
 	
 }
