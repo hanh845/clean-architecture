@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class StudentRepositoryImpl implements StudentRepository {
+public class InMemoryRepositoryImpl implements StudentRepository {
 
 	private final Map<Long, Student> inMemoryDb = new HashMap<>();
 

@@ -31,7 +31,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.sample.student</groupId>
-			<artifactId>infrastructure</artifactId>
+			<artifactId>usecases</artifactId>
 			<version>0.0.1</version>
 		</dependency>
 		<dependency>
