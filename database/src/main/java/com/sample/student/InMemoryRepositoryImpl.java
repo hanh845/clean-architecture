@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 public class InMemoryRepositoryImpl implements StudentRepository {
 
@@ -16,12 +15,13 @@ public class InMemoryRepositoryImpl implements StudentRepository {
 	}
 
 	@Override
-	public void saveStudent(Student student) {
+	public int saveStudent(Student student) {
 		inMemoryDb.put(student.getId(), student);
+		return 1;
 	}
 
 	@Override
-	public Optional<Student> findById(Long id) {
-		return Optional.ofNullable(inMemoryDb.get(id));
+	public Student findById(Long id) {
+		return inMemoryDb.get(id);
 	}
 }

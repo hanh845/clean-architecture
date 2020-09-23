@@ -1,11 +1,11 @@
 package com.sample.student;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
 
 @Repository
 public class JdbcStudentRepositoryImpl implements StudentRepository {
@@ -22,15 +22,17 @@ public class JdbcStudentRepositoryImpl implements StudentRepository {
 	}
 
 	@Override
-	public void saveStudent(Student student) {
-		// TODO Auto-generated method stub
+	public int saveStudent(Student student) {
+		return jdbcTemplate.update("insert into student (id, name, available) values (?, ?, ?)"
+				, new Object[] {student.getId(), student.getName(), student.getAvailable()});
 		
 	}
 
 	@Override
-	public Optional<Student> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Student findById(Long id) {
+		return jdbcTemplate.queryForObject("select * from student where id=?"
+				, new Object[] {id}
+				, new BeanPropertyRowMapper<Student>(Student.class));
 	}
 
 	

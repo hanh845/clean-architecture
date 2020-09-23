@@ -15,6 +15,7 @@ import com.sample.student.StudentRepository;
 import com.sample.student.usecase.CreateStudentUseCase;
 import com.sample.student.usecase.GetAllStudentsUseCase;
 import com.sample.student.usecase.impl.CreateStudentUseCaseImpl;
+import com.sample.student.usecase.impl.FindStudentByIdUseCaseImpl;
 import com.sample.student.usecase.impl.GetAllStudentsUseCaseImpl;
 
 @Configuration
@@ -29,6 +30,11 @@ public class Config {
 	@Bean(name = "getAllStudentsUseCase")
 	public GetAllStudentsUseCase getAllStudentsUseCase(@Qualifier("studentRepository") StudentRepository repository) {
 		return new GetAllStudentsUseCaseImpl(repository);
+	}
+	
+	@Bean(name = "findStudentByIdUseCase")
+	public FindStudentByIdUseCaseImpl findStudentByIdUseCase(@Qualifier("studentRepository") StudentRepository repository) {
+		return new FindStudentByIdUseCaseImpl(repository);
 	}
 
 	@Bean(name = "studentRepository")
