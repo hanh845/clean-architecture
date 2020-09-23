@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.sample.student.InMemoryRepositoryImpl;
 import com.sample.student.JdbcStudentRepositoryImpl;
 import com.sample.student.StudentRepository;
 import com.sample.student.usecase.CreateStudentUseCase;
@@ -42,6 +43,10 @@ public class Config {
 		return new JdbcStudentRepositoryImpl(jdbcTemplate);
 	}
 
+//	@Bean(name = "studentRepository")
+//	public StudentRepository studentRepository() {
+//		return new InMemoryRepositoryImpl();
+//	}
 
 	@Bean(name = "jdbcService")
 	public JdbcTemplate createJdbcTemplate(@Qualifier("dbService") DataSource dataSource) {
