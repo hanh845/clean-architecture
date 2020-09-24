@@ -1,5 +1,6 @@
 package com.sample.student;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -24,8 +25,8 @@ public class JpaStudentRepositoryImpl implements StudentRepository {
 
 	@Override
 	public List<Student> findAllStudents() {
-		// TODO
-		return null;
+		List<DBStudent> lsDBStudent = entityManager.createQuery("Select a from DBStudent a", DBStudent.class).getResultList();
+		return convertLsDBStudentToLsStudent(lsDBStudent);
 	}
 
 	@Override
@@ -40,6 +41,18 @@ public class JpaStudentRepositoryImpl implements StudentRepository {
 	public Student findById(Long id) {
 		DBStudent dbStudent = entityManager.find(DBStudent.class, id);
 		return convertDBStudentToStudent(dbStudent);
+	}
+	
+	private List<Student> convertLsDBStudentToLsStudent(List<DBStudent> lsDBStudent) {
+		List<Student> lsStudents = new ArrayList<Student>();
+		for (DBStudent dbStudent : lsDBStudent) {
+			Student student = new Student();
+			student.setId(dbStudent.getId());
+			student.setName(dbStudent.getName());
+			student.setAvailable(dbStudent.getAvailable());
+			lsStudents.add(student);
+		}
+		return lsStudents;
 	}
 
 	private DBStudent convertStudentToDBStudent(Student student) {
