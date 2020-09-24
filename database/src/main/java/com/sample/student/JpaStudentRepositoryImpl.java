@@ -32,9 +32,7 @@ public class JpaStudentRepositoryImpl implements StudentRepository {
 	@Override
 	public int saveStudent(Student student) {
 		DBStudent dbStudent = convertStudentToDBStudent(student);
-		int result = entityManager.merge(dbStudent).getId().intValue();
-		System.out.println("result: " + result);
-		return result;
+		return entityManager.merge(dbStudent).getId().intValue();
 	}
 
 	@Override

@@ -39,8 +39,8 @@ public class SpringStudentController {
 
 	@PostMapping("/students")
 	public ResponseEntity<String> createStudent(@RequestBody Student student) throws Exception {
-		createStudentUseCase.execute(student);
-		return new ResponseEntity<>("OK", HttpStatus.OK);
+		int result = createStudentUseCase.execute(student);
+		return new ResponseEntity<>(String.valueOf(result), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/students", method = RequestMethod.GET)
