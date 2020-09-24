@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import com.sample.student.entity.StudentEntity;
+import com.sample.student.entity.DBStudent;
 
 @Repository
 @Transactional
@@ -30,21 +30,31 @@ public class JpaStudentRepositoryImpl implements StudentRepository {
 
 	@Override
 	public int saveStudent(Student student) {
-		// TODO Auto-generated method stub
-		return 0;
+		DBStudent dbStudent = convertStudentToDBStudent(student);
+		int result = entityManager.merge(dbStudent).getId().intValue();
+		System.out.println("result: " + result);
+		return result;
 	}
 
 	@Override
 	public Student findById(Long id) {
-		StudentEntity student = entityManager.find(StudentEntity.class, id);
-		return convertEntity(student);
+		DBStudent dbStudent = entityManager.find(DBStudent.class, id);
+		return convertDBStudentToStudent(dbStudent);
 	}
 
-	private Student convertEntity(StudentEntity studentEntity) {
+	private DBStudent convertStudentToDBStudent(Student student) {
+		DBStudent dbStudent = new DBStudent();
+		dbStudent.setId(student.getId());
+		dbStudent.setName(student.getName());
+		dbStudent.setAvailable(student.getAvailable());
+		return dbStudent;
+	}
+	
+	private Student convertDBStudentToStudent(DBStudent dbStudent) {
 		Student student = new Student();
-		student.setId(studentEntity.getId());
-		student.setName(studentEntity.getName());
-		student.setAvailable(studentEntity.getAvailable());
+		student.setId(dbStudent.getId());
+		student.setName(dbStudent.getName());
+		student.setAvailable(dbStudent.getAvailable());
 		return student;
 	}
 

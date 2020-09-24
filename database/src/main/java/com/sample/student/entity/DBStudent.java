@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity 
 @Table (name = "Student")
-public class StudentEntity {
+public class DBStudent {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,11 +18,11 @@ public class StudentEntity {
 
 	private String available;
 
-	public StudentEntity() {
+	public DBStudent() {
 		super();
 	}
 
-	public StudentEntity(Long id, String name, String available) {
+	public DBStudent(Long id, String name, String available) {
 		super();
 		this.id = id;
 		this.name = name;
