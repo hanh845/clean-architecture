@@ -9,10 +9,6 @@
 	<version>0.0.1</version>
 	<name>entities</name>
 	<packaging>jar</packaging>
-	
-	<properties>
-		<lombok.version>1.18.8</lombok.version>
-	</properties>
 
 	<parent>
 		<groupId>com.sample</groupId>

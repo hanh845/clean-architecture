@@ -44,7 +44,7 @@ public class SpringStudentController {
 	}
 
 	@RequestMapping(value = "/students", method = RequestMethod.GET)
-	public ResponseEntity<List<Student>> allUsers() {
+	public ResponseEntity<List<Student>> GetAllStudents() {
 		List<Student> lsStudents = getAllStudentsUseCase.execute();
 		return new ResponseEntity<>(lsStudents, HttpStatus.OK);
 	}
