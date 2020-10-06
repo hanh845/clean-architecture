@@ -7,31 +7,28 @@
 
 	<groupId>com.sample.student</groupId>
 	<artifactId>usecases</artifactId>
-	<version>0.0.1</version>
+	<version>${module.version}</version>
 	<name>usecases</name>
 
 	<parent>
 		<groupId>com.sample</groupId>
 		<artifactId>clean-architecture-demo</artifactId>
-		<version>1.0</version>
+		<version>${global.version}</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.sample.student</groupId>
 			<artifactId>entities</artifactId>
-			<version>0.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
-			<version>5.7.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 		    <groupId>org.mockito</groupId>
 		    <artifactId>mockito-junit-jupiter</artifactId>
-		    <version>3.5.13</version>
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
