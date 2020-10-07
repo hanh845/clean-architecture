@@ -11,6 +11,12 @@ public class Student {
 	public Student() {
 		super();
 	}
+	
+	public Student(String name, String available) {
+		super();
+		this.name = name;
+		this.available = available;
+	}
 
 	public Student(Long id, String name, String available) {
 		super();

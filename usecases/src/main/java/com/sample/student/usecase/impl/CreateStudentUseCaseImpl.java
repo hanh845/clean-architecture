@@ -20,4 +20,8 @@ public class CreateStudentUseCaseImpl implements CreateStudentUseCase {
 	public int execute(Student student) throws Exception {
 		return studentRepository.saveStudent(student);
 	}
+	
+	public String greeting() {
+		return "Hello, World";
+	}
 }

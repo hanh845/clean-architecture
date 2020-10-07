@@ -29,7 +29,7 @@ import com.sample.student.usecase.impl.GetAllStudentsUseCaseImpl;
 @ComponentScan("com.sample.student")
 public class Config {
 
-	@Bean(name = "CreateStudentUseCase")
+	@Bean(name = "createStudentUseCase")
 	public CreateStudentUseCase CreateStudentUseCase(@Qualifier("studentRepository") StudentRepository repository) {
 		return new CreateStudentUseCaseImpl(repository);
 	}
