@@ -40,8 +40,7 @@ public class Config {
 	}
 
 	@Bean(name = "findStudentByIdUseCase")
-	public FindStudentByIdUseCaseImpl findStudentByIdUseCase(
-			@Qualifier("studentRepository") StudentRepository repository) {
+	public FindStudentByIdUseCaseImpl findStudentByIdUseCase(@Qualifier("studentRepository") StudentRepository repository) {
 		return new FindStudentByIdUseCaseImpl(repository);
 	}
 

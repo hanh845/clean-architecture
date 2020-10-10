@@ -10,13 +10,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sample.student.DemoApplication;
 import com.sample.student.Student;
 import com.sample.student.StudentRepository;
 
 @RunWith(SpringRunner.class)
 @TestPropertySource("classpath:application.properties")
-@SpringBootTest(classes = DemoApplication.class)
+//@SpringBootTest(classes = DemoApplication.class)
+@SpringBootTest
 public class JpaStudentRepositoryTest {
 	
 	@Autowired

@@ -17,7 +17,7 @@ public class CreateStudentUseCaseImpl implements CreateStudentUseCase {
 	}
 
 	@Override
-	public int execute(Student student) throws Exception {
+	public int execute(Student student) {
 		return studentRepository.saveStudent(student);
 	}
 	

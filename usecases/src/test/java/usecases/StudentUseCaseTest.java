@@ -36,17 +36,12 @@ class StudentUseCaseTest {
 
 	@Test
 	public void testCreateStudentUseCase() {
+		
 		Student student = new Student(50l, "hanh", "1");
 		
 		when(studentRepository.saveStudent(student)).thenReturn(2);
 		
-		int result;
-		try {
-			result = createStudentUseCase.execute(student);
-			assertEquals(2, result);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		assertEquals(2, createStudentUseCase.execute(student));
 	}
 	
 	@Test
@@ -56,8 +51,7 @@ class StudentUseCaseTest {
 		
 		when(studentRepository.findById(50l)).thenReturn(student);
 		
-		Student result = findStudentByIdUseCase.execute(50l);
-		assertEquals("hanh", result.getName());
+		assertEquals("hanh", findStudentByIdUseCase.execute(50l).getName());
 	}
 
 	@Test
@@ -72,9 +66,8 @@ class StudentUseCaseTest {
 		when(studentRepository.findAllStudents()).thenReturn(students);
 		
 		List<Student> lsStudents = getAllStudentsUseCase.execute();
-		int result = lsStudents.size();
 		
-		assertEquals(2, result);
+		assertEquals(2, lsStudents.size());
 	}
 
 }
