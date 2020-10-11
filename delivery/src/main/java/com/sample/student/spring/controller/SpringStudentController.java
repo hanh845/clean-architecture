@@ -55,4 +55,8 @@ public class SpringStudentController {
 		return new ResponseEntity<>(student, HttpStatus.OK);
 	}
 	
+	@GetMapping("/")
+	public String test() {
+		return "Hello, World";
+	}
 }

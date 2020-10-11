@@ -6,10 +6,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.sample.student</groupId>
-	<artifactId>controller</artifactId>
+	<artifactId>delivery</artifactId>
 	<version>${module.version}</version>
 	<packaging>war</packaging>
-	<name>controller</name>
+	<name>delivery</name>
 
 	<parent>
 		<groupId>com.sample</groupId>
@@ -49,8 +49,8 @@
 		</dependency>
 	</dependencies>
 	
-	 	<build>
-		<finalName>controller</finalName>
+	 <build>
+		<finalName>delivery</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>

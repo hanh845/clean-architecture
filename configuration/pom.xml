@@ -24,7 +24,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.sample.student</groupId>
-			<artifactId>controller</artifactId>
+			<artifactId>delivery</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>

@@ -31,7 +31,7 @@
 		<module>entities</module>
 		<module>usecases</module>
 		<module>database</module>
-		<module>controller</module>
+		<module>delivery</module>
 		<module>configuration</module>
 	</modules>
 	
@@ -54,7 +54,7 @@
 			</dependency>
 			<dependency>
 				<groupId>com.sample.student</groupId>
-				<artifactId>controller</artifactId>
+				<artifactId>delivery</artifactId>
 				<version>${module.version}</version>
 			</dependency>
 			<dependency>
