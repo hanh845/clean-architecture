@@ -8,7 +8,6 @@
 	<groupId>com.sample.student</groupId>
 	<artifactId>delivery</artifactId>
 	<version>${module.version}</version>
-	<packaging>war</packaging>
 	<name>delivery</name>
 
 	<parent>
@@ -41,11 +40,6 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
 		</dependency>
 	</dependencies>
 	

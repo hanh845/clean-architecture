@@ -9,7 +9,8 @@
 	<artifactId>configuration</artifactId>
 	<version>${module.version}</version>
 	<name>configuration</name>
-
+	<packaging>war</packaging>
+	
 
 	<parent>
 		<groupId>com.sample</groupId>
