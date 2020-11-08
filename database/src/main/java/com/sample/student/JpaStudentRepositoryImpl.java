@@ -44,11 +44,7 @@ public class JpaStudentRepositoryImpl implements StudentRepository {
 	private List<Student> convertLsDBStudentToLsStudent(List<DBStudent> lsDBStudent) {
 		List<Student> lsStudents = new ArrayList<Student>();
 		for (DBStudent dbStudent : lsDBStudent) {
-			Student student = new Student();
-			student.setId(dbStudent.getId());
-			student.setName(dbStudent.getName());
-			student.setAvailable(dbStudent.getAvailable());
-			lsStudents.add(student);
+			lsStudents.add(convertDBStudentToStudent(dbStudent));
 		}
 		return lsStudents;
 	}
@@ -58,6 +54,9 @@ public class JpaStudentRepositoryImpl implements StudentRepository {
 		dbStudent.setId(student.getId());
 		dbStudent.setName(student.getName());
 		dbStudent.setAvailable(student.getAvailable());
+		dbStudent.setUsername(student.getUsername());
+		dbStudent.setPassword(student.getPassword());
+		dbStudent.setGrantedAuthoritiesList(student.getGrantedAuthoritiesList());
 		return dbStudent;
 	}
 	
@@ -66,6 +65,9 @@ public class JpaStudentRepositoryImpl implements StudentRepository {
 		student.setId(dbStudent.getId());
 		student.setName(dbStudent.getName());
 		student.setAvailable(dbStudent.getAvailable());
+		student.setUsername(dbStudent.getUsername());
+		student.setPassword(dbStudent.getPassword());
+		student.setGrantedAuthoritiesList(dbStudent.getGrantedAuthoritiesList());
 		return student;
 	}
 

@@ -15,43 +15,35 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sample.student.Student;
-import com.sample.student.usecase.CreateStudentUseCase;
-import com.sample.student.usecase.FindStudentByIdUseCase;
-import com.sample.student.usecase.GetAllStudentsUseCase;
+import com.sample.student.usecase.StudentUseCase;
 
 
 @RestController
 @ComponentScan("com.sample.student")
-public class SpringStudentController {
+public class StudentController {
 	
-	private final CreateStudentUseCase createStudentUseCase;
-	private final GetAllStudentsUseCase getAllStudentsUseCase;
-	private final FindStudentByIdUseCase findStudentByIdUseCase;
+	private final StudentUseCase studentUseCase;
 
 	@Autowired
-	public SpringStudentController(CreateStudentUseCase createStudentUseCase
-			, GetAllStudentsUseCase getAllStudentsUseCase 
-			, FindStudentByIdUseCase findStudentByIdUseCase) {
-		this.createStudentUseCase = createStudentUseCase;
-		this.getAllStudentsUseCase = getAllStudentsUseCase;
-		this.findStudentByIdUseCase = findStudentByIdUseCase;
+	public StudentController(StudentUseCase studentUseCase) {
+		this.studentUseCase = studentUseCase;
 	}
 
 	@PostMapping("/students")
 	public ResponseEntity<String> createStudent(@RequestBody Student student) throws Exception {
-		int result = createStudentUseCase.execute(student);
+		int result = studentUseCase.createStudentUseCase(student);
 		return new ResponseEntity<>(String.valueOf(result), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/students", method = RequestMethod.GET)
 	public ResponseEntity<List<Student>> GetAllStudents() {
-		List<Student> lsStudents = getAllStudentsUseCase.execute();
+		List<Student> lsStudents = studentUseCase.getAllStudentsUseCase();
 		return new ResponseEntity<>(lsStudents, HttpStatus.OK);
 	}
 	
 	@GetMapping("/student/{id}")
 	public ResponseEntity<Student> findStudentById(@PathVariable("id") Long id) {
-		Student student = findStudentByIdUseCase.execute(id);
+		Student student = studentUseCase.findStudentByIdUseCase(id);
 		return new ResponseEntity<>(student, HttpStatus.OK);
 	}
 	

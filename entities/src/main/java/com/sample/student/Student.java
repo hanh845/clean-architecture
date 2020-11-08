@@ -3,26 +3,33 @@ package com.sample.student;
 public class Student {
 
 	private Long id;
-
 	private String name;
-
 	private String available;
-
+	private String username;
+	private String password;
+	private String grantedAuthoritiesList;
+	
 	public Student() {
 		super();
 	}
-	
-	public Student(String name, String available) {
+
+	public Student(String name, String available, String username, String password, String grantedAuthoritiesList) {
 		super();
 		this.name = name;
 		this.available = available;
+		this.username = username;
+		this.password = password;
+		this.grantedAuthoritiesList = grantedAuthoritiesList;
 	}
 
-	public Student(Long id, String name, String available) {
+	public Student(Long id, String name, String available, String username, String password, String grantedAuthoritiesList) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.available = available;
+		this.username = username;
+		this.password = password;
+		this.grantedAuthoritiesList = grantedAuthoritiesList;
 	}
 
 	public Long getId() {
@@ -47,6 +54,30 @@ public class Student {
 
 	public void setAvailable(String available) {
 		this.available = available;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getGrantedAuthoritiesList() {
+		return grantedAuthoritiesList;
+	}
+
+	public void setGrantedAuthoritiesList(String grantedAuthoritiesList) {
+		this.grantedAuthoritiesList = grantedAuthoritiesList;
 	}
 
 	@Override

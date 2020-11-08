@@ -23,8 +23,9 @@ public class JdbcStudentRepositoryImpl implements StudentRepository {
 
 	@Override
 	public int saveStudent(Student student) {
-		jdbcTemplate.update("insert into student (id, name, available) values (?, ?, ?)"
-				, new Object[] {student.getId(), student.getName(), student.getAvailable()});
+		jdbcTemplate.update("insert into student (id, name, available, username, password, grantedAuthoritiesList) values (?, ?, ?, ?, ?, ?)"
+				, new Object[] {student.getId(), student.getName(), student.getAvailable()
+						, student.getUsername(), student.getPassword(), student.getGrantedAuthoritiesList()});
 		return student.getId().intValue();
 		
 	}
