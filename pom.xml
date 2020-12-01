@@ -33,6 +33,7 @@
 		<module>database</module>
 		<module>delivery</module>
 		<module>configuration</module>
+		<module>security</module>
 	</modules>
 	
 	<dependencyManagement>
@@ -60,6 +61,11 @@
 			<dependency>
 				<groupId>com.sample.student</groupId>
 				<artifactId>configuration</artifactId>
+				<version>${module.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sample.student</groupId>
+				<artifactId>security</artifactId>
 				<version>${module.version}</version>
 			</dependency>
 		</dependencies>
